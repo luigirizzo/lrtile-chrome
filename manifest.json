@@ -1,0 +1,48 @@
+{
+  "manifest_version": 2,
+
+  "name": "lrTile, Tiling Window mover for Chrome",
+  "short_name": "lrtile",
+  "description":
+     "lrTile uses two modifiers and cursor keys to move and resize
+     windows on a grid of configurable size.",
+  "version": "0.1",
+  "icons": {"256": "lrtile.png"},
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "system.display"
+  ],
+
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "background" : {
+    "scripts": [
+	"lrtile.js"
+    ],
+    "persistent": true
+  },
+
+  "commands": {
+    // Cannot suggest more than 4 shortcuts so open the extension settings
+    // page on startup. Leading digits enforce presentation order in settings.
+    "01-lr-left":   { "description": "Move Left (Ctrl+Shift+Left)"
+       , "suggested_key": { "default": "Ctrl+Shift+Left" }
+    },
+    "02-lr-right":  { "description": "Move Right (Ctrl+Shift+Right)"
+       , "suggested_key": { "default": "Ctrl+Shift+Right" }
+    },
+    "03-lr-up":     { "description": "Move up (Ctrl+Shift+Up)" },
+    "04-lr-down":   { "description": "Move Down (Ctrl+Shift+Down)" },
+
+    "11-lr-narrow": { "description": "Narrower (Ctrl+Search+Left)" },
+    "12-lr-wide":   { "description": "Wider (Ctrl+Search+Right)" },
+    "13-lr-short":  { "description": "Shorter (Ctrl+Search+Up)" },
+    "14-lr-tall":   { "description": "Taller (Ctrl+Search+Down)" },
+
+    "21-lr-full":   { "description": "Full screen (Alt+Shift+F)" }
+  }
+}
